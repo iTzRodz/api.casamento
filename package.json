@@ -1,0 +1,29 @@
+{
+  "name": "api.casamento",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "tsx src/api/server.ts",    
+    "build": "npx prisma generate && npx prisma migrate deploy",
+    "start": "tsx src/api/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iTzRodz/api.casamento.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iTzRodz/api.casamento/issues"
+  },
+  "homepage": "https://github.com/iTzRodz/api.casamento#readme",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@prisma/client": "^6.9.0",
+    "fastify": "^5.3.3",
+    "fastify-type-provider-zod": "^4.0.2",
+    "tsx": "^4.19.4"
+  }
+}
