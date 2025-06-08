@@ -1,12 +1,13 @@
 {
   "name": "api.casamento",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/api/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "tsx src/api/server.ts",    
-    "build": "npx prisma generate && npx prisma migrate deploy",
-    "start": "tsx src/api/server.ts"
+    "api": "tsx src/api/server.ts",
+    "build": "tsc && npx prisma generate && npx prisma migrate deploy",
+    "start": "node dist/api/server.js",
+    "dev": "tsx watch src/api/server.ts"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,11 @@
     "@prisma/client": "^6.9.0",
     "fastify": "^5.3.3",
     "fastify-type-provider-zod": "^4.0.2",
+    "prisma": "^6.9.0",
     "tsx": "^4.19.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
   }
 }
