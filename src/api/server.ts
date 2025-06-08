@@ -20,7 +20,9 @@ app.get("/is-alive", async () => {
   return { message: "ok" };
 });
 
+const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 
-app.listen({ port: 3000 }).then(() => {
-  console.log("Server ON");
+app.listen({ port: PORT, host: HOST }).then(() => {
+  console.log(`Server ON - Port: ${PORT}`);
 });
