@@ -9,7 +9,7 @@ type isGoToEventType = "1" | "0";
 
 interface WeddingParams {
   isGoToEvent: isGoToEventType;
-  email: string;
+  phone: string;
   name: string;
   adultCount: number;
   childCount: number;
@@ -17,16 +17,16 @@ interface WeddingParams {
 }
 
 export async function respondToWeddingInvite(body: WeddingParams) {
-  const validateEmail = await prisma.person.findFirst({
+  const validatephone = await prisma.person.findFirst({
     where: {
-      email: body.email,
+      phone: body.phone,
     },
   });
 
-  if (validateEmail) {
+  if (validatephone) {
     return {
-      message: "Este email já foi utilizado para responder ao formulário.",
-      data: validateEmail,
+      message: "Este telefone já foi utilizado para responder ao formulário.",
+      data: validatephone,
       status: 400,
     };
   }
@@ -36,7 +36,7 @@ export async function respondToWeddingInvite(body: WeddingParams) {
     person = await prisma.person.create({
       data: {
         name: body.name,
-        email: body.email,
+        phone: body.phone,
         isGoEvent: body.isGoToEvent === "1",
         countChildren: body.childCount,
       },
