@@ -9,7 +9,7 @@ export const subscribeToEventRoute: FastifyPluginAsyncZod = async (app) => {
       schema: {
         body: z.object({
           isGoToEvent: z.enum(["1", "0"]),
-          email: z.string().min(1).email(),
+          phone: z.string().min(1),
           name: z.string().min(1),
           adultCount: z.number(),
           childCount: z.number(),
