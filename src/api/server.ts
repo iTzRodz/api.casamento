@@ -8,6 +8,7 @@ import {
 
 import { subscribeToEventRoute } from "./routes/form-route";
 import { pingRoute } from "./routes/ping";
+import { pingRouteDB } from "./routes/ping-db";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 app.setSerializerCompiler(serializerCompiler);
@@ -16,6 +17,7 @@ app.register(fastifyCors);
 
 app.register(subscribeToEventRoute);
 app.register(pingRoute);
+app.register(pingRouteDB);
 
 app.get("/is-alive", async () => {
   return { message: "ok" };
